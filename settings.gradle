@@ -1,0 +1,6 @@
+rootProject.name = 'jaws'
+
+include 'jaws-rc'
+
+include 'jaws-model'
+
