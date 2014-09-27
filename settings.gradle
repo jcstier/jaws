@@ -1,4 +1,5 @@
-rootProject.name = 'jaws'
+
+include 'jaws-central'
 
 include 'jaws-rc'
 

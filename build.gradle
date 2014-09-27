@@ -1,25 +1,78 @@
-apply plugin: 'java'
-
-sourceCompatibility = 1.8
-version = '1.0'
-
-repositories {
-    mavenCentral()
+buildscript{
+    repositories{
+        mavenCentral()
+    }
+    dependencies{
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.1.6.RELEASE")
+    }
 }
 
-dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.11'
-    compile project(':jaws-model')
-}
 
+ext.projectIds = ['group':'co.riverrunners.jaws', 'version':'1.0']
+
+group = projectIds.group
+version = projectIds.version
+/**
+ * Config for the sub projects jaws-rc and jaws-model
+ */
 subprojects {
     apply plugin: 'java'
+    apply plugin: 'eclipse'
+    apply plugin: 'idea'
+
 
     sourceCompatibility = 1.8
-    version = '1.0'
+    group = projectIds.group
+    version = projectIds.version
 
     repositories {
         mavenCentral()
     }
 
+}
+
+project(':jaws-rc') {
+
+     println('Got here!!!!!')
+    apply plugin: 'spring-boot'
+
+//    mainClassName = 'co.riverrunners.jawsrc.App'
+
+    dependencies {
+        // boot setup using jetty
+        compile("org.springframework.boot:spring-boot-starter-web") {
+            exclude module: "spring-boot-starter-tomcat"
+        }
+        compile("org.springframework.boot:spring-boot-starter-jetty")
+        compile("org.springframework.boot:spring-boot-starter-actuator")
+
+        compile project(':jaws-model')
+    }
+}
+
+
+project(':jaws-central') {
+
+//    mainClassName = 'co.riverrunners.jaws.App'
+
+    apply plugin: 'spring-boot'
+
+    dependencies {
+        // boot setup using jetty
+        compile("org.springframework.boot:spring-boot-starter-web") {
+            exclude module: "spring-boot-starter-tomcat"
+        }
+        compile("org.springframework.boot:spring-boot-starter-jetty")
+        compile("org.springframework.boot:spring-boot-starter-actuator")
+
+        compile project(':jaws-model')
+    }
+}
+
+
+
+
+
+task dist(type: Zip) {
+//    from jar.output.files
 }
