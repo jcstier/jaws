@@ -1,4 +1,4 @@
-package co.riverrunners.jawsmodel;
+package co.riverrunners.jaws;
 
 /**
  * @author Chris Stier <chrisstier@riverrunners.co>

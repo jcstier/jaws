@@ -45,7 +45,7 @@ project(':jaws-rc') {
         }
         compile("org.springframework.boot:spring-boot-starter-jetty")
         compile("org.springframework.boot:spring-boot-starter-actuator")
-
+        compile("com.h2database:h2")
         compile project(':jaws-model')
     }
 }
@@ -64,7 +64,8 @@ project(':jaws-central') {
         }
         compile("org.springframework.boot:spring-boot-starter-jetty")
         compile("org.springframework.boot:spring-boot-starter-actuator")
-
+        compile("org.springframework.boot:spring-boot-starter-thymeleaf")
+        compile("com.h2database:h2")
         compile project(':jaws-model')
     }
 }
