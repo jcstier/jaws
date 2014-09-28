@@ -19,6 +19,10 @@ gradle build
 ### Running JAWS ###
 #### Running central ####
 * cd to ./jaws-central/libs
-* java -jar jaws-central-1.0.jar 
-* java -jar jaws-central-1.0.jar --help
-* Will print program usage
+```
+ java -jar jaws-central-1.0.jar 
+```
+* Printing usage:
+```
+ java -jar jaws-central-1.0.jar --help
+```
