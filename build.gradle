@@ -1,5 +1,7 @@
 buildscript {
     repositories {
+        maven { url "http://repo.spring.io/libs-release" }
+        mavenLocal()
         mavenCentral()
     }
     dependencies {
@@ -42,9 +44,11 @@ project(':jaws-rc') {
         }
         compile("org.springframework.boot:spring-boot-starter-jetty")
         compile("org.springframework.boot:spring-boot-starter-actuator")
-        compile("org.springframework.boot:spring-boot-starter-test")
         compile project(':jaws-model')
         compile project(':jaws-es')
+
+        //testing
+        testCompile("org.springframework.boot:spring-boot-starter-test")
     }
 }
 
@@ -60,9 +64,11 @@ project(':jaws-central') {
         compile("org.springframework.boot:spring-boot-starter-jetty")
         compile("org.springframework.boot:spring-boot-starter-actuator")
         compile("org.springframework.boot:spring-boot-starter-thymeleaf")
-        compile("org.springframework.boot:spring-boot-starter-test")
         compile project(':jaws-model')
         compile project(':jaws-es')
+
+        //testing
+        testCompile("org.springframework.boot:spring-boot-starter-test")
     }
 }
 
@@ -76,6 +82,11 @@ project(':jaws-es') {
 
     dependencies {
         compile("org.springframework.data:spring-data-elasticsearch:1.0.0.RELEASE")
+        compile project(':jaws-model')
+
+        //testing
+        testCompile ("junit:junit:4.11")
+        testCompile ("ch.qos.logback:logback-classic:1.1.2")
     }
 }
 

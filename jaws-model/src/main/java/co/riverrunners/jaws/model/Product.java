@@ -1,5 +1,6 @@
 package co.riverrunners.jaws.model;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -9,40 +10,34 @@ import java.util.Map;
  * @author Chris Stier <john.c.stier@gmail.com>
  */
 
-public class Product {
+public class Product implements Serializable{
     private String asin;
     private String msku;
     private String upc;
-    private List<String> titles;
     private String brand;
+    private String name;
     private String description;
     private String url;
     private String department;
-    private Map<String,String> rankings;
-    private Map<String,String> ratings;
-    private Map<String,String> features;
-    private Map<String,String> images;
+    private List<SellerProduct> sellerProducts;
     private Date created_at;
     private Date updated_at;
 
     public Product() {
     }
 
-    public Product(String asin, String msku, String upc, List<String> titles, String brand, String description,
-                   String url, String department, Map<String, String> rankings, Map<String, String> ratings,
-                   Map<String, String> features, Map<String, String> images, Date created_at, Date updated_at) {
+
+    public Product(String asin, String msku, String upc, String brand, String name, String description, String url,
+                   String department, List<SellerProduct> sellerProducts, Date created_at, Date updated_at) {
         this.asin = asin;
         this.msku = msku;
         this.upc = upc;
-        this.titles = titles;
         this.brand = brand;
+        this.name = name;
         this.description = description;
         this.url = url;
         this.department = department;
-        this.rankings = rankings;
-        this.ratings = ratings;
-        this.features = features;
-        this.images = images;
+        this.sellerProducts = sellerProducts;
         this.created_at = created_at;
         this.updated_at = updated_at;
     }
@@ -55,12 +50,20 @@ public class Product {
         this.asin = asin;
     }
 
-    public List<String> getTitles() {
-        return titles;
+    public String getMsku() {
+        return msku;
     }
 
-    public void setTitles(List<String> titles) {
-        this.titles = titles;
+    public void setMsku(String msku) {
+        this.msku = msku;
+    }
+
+    public String getUpc() {
+        return upc;
+    }
+
+    public void setUpc(String upc) {
+        this.upc = upc;
     }
 
     public String getBrand() {
@@ -69,6 +72,14 @@ public class Product {
 
     public void setBrand(String brand) {
         this.brand = brand;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getDescription() {
@@ -95,44 +106,12 @@ public class Product {
         this.department = department;
     }
 
-    public Map<String, String> getRankings() {
-        return rankings;
+    public List<SellerProduct> getSellerProducts() {
+        return sellerProducts;
     }
 
-    public void setRankings(Map<String, String> rankings) {
-        this.rankings = rankings;
-    }
-
-    public Map<String, String> getRatings() {
-        return ratings;
-    }
-
-    public void setRatings(Map<String, String> ratings) {
-        this.ratings = ratings;
-    }
-
-    public Map<String, String> getFeatures() {
-        return features;
-    }
-
-    public void setFeatures(Map<String, String> features) {
-        this.features = features;
-    }
-
-    public Map<String, String> getImages() {
-        return images;
-    }
-
-    public void setImages(Map<String, String> images) {
-        this.images = images;
-    }
-
-    public String getUpc() {
-        return upc;
-    }
-
-    public void setUpc(String upc) {
-        this.upc = upc;
+    public void setSellerProducts(List<SellerProduct> sellerProducts) {
+        this.sellerProducts = sellerProducts;
     }
 
     public Date getCreated_at() {
@@ -149,13 +128,5 @@ public class Product {
 
     public void setUpdated_at(Date updated_at) {
         this.updated_at = updated_at;
-    }
-
-    public String getMsku() {
-        return msku;
-    }
-
-    public void setMsku(String msku) {
-        this.msku = msku;
     }
 }
