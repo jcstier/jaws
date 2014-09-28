@@ -18,7 +18,7 @@ gradle build
 
 
 ### Running JAWS ###
-* Running central
+#### Running central ####
 * cd to ./jaws-central/libs
 * java -jar jaws-central-1.0.jar 
 * java -jar jaws-central-1.0.jar --help
