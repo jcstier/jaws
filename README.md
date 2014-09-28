@@ -9,7 +9,17 @@ Just Another Web Scraper
 * jaws-model - model classes for sending data between the remote client, central and ElasticSearch.
 
 ### Building JAWS ####
+* cd to jaws root dir
+* 
+```
+gradle build
+```
 
 
 
 ### Running JAWS ###
+* Running central
+** cd to ./jaws-central/libs
+** java -jar jaws-central-1.0.jar 
+** java -jar jaws-central-1.0.jar --help
+*** Will print program usage
