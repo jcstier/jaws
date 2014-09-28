@@ -10,7 +10,6 @@ Just Another Web Scraper
 
 ### Building JAWS ####
 * cd to jaws root dir
-* 
 ```
 gradle build
 ```
