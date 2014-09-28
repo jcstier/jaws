@@ -5,3 +5,4 @@ include 'jaws-rc'
 
 include 'jaws-model'
 
+include 'jaws-es'

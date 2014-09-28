@@ -1,19 +1,20 @@
-buildscript{
-    repositories{
+buildscript {
+    repositories {
         mavenCentral()
     }
-    dependencies{
+    dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:1.1.6.RELEASE")
     }
 }
 
 
-ext.projectIds = ['group':'co.riverrunners.jaws', 'version':'1.0']
+ext.projectIds = ['group': 'co.riverrunners.jaws', 'version': '1.0']
 
 group = projectIds.group
 version = projectIds.version
+
 /**
- * Config for the sub projects jaws-rc and jaws-model
+ * Generic config for all projects
  */
 subprojects {
     apply plugin: 'java'
@@ -32,11 +33,7 @@ subprojects {
 }
 
 project(':jaws-rc') {
-
-     println('Got here!!!!!')
     apply plugin: 'spring-boot'
-
-//    mainClassName = 'co.riverrunners.jawsrc.App'
 
     dependencies {
         // boot setup using jetty
@@ -45,16 +42,14 @@ project(':jaws-rc') {
         }
         compile("org.springframework.boot:spring-boot-starter-jetty")
         compile("org.springframework.boot:spring-boot-starter-actuator")
-        compile("com.h2database:h2")
+        compile("org.springframework.boot:spring-boot-starter-test")
         compile project(':jaws-model')
+        compile project(':jaws-es')
     }
 }
 
 
 project(':jaws-central') {
-
-//    mainClassName = 'co.riverrunners.jaws.App'
-
     apply plugin: 'spring-boot'
 
     dependencies {
@@ -65,15 +60,26 @@ project(':jaws-central') {
         compile("org.springframework.boot:spring-boot-starter-jetty")
         compile("org.springframework.boot:spring-boot-starter-actuator")
         compile("org.springframework.boot:spring-boot-starter-thymeleaf")
-        compile("com.h2database:h2")
+        compile("org.springframework.boot:spring-boot-starter-test")
         compile project(':jaws-model')
+        compile project(':jaws-es')
     }
 }
 
+project(':jaws-model') {
 
+    dependencies {
+    }
+}
 
+project(':jaws-es') {
 
+    dependencies {
+        compile("org.springframework.data:spring-data-elasticsearch:1.0.0.RELEASE")
+    }
+}
 
+// TODO: Need to figure out how to make zip distribution which only contains central and rc.
 task dist(type: Zip) {
 //    from jar.output.files
 }
