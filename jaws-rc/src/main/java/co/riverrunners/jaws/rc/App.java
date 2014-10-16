@@ -1,13 +1,14 @@
-package co.riverrunners.jaws;
+package co.riverrunners.jaws.rc;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 /**
- * Main application entry point for jaws-central.  jaws-central will be
- * dispatching work through a jms queue to jaws-rc's.
+ * Main application entry point for jaws-rc.  Jaws-rc will be a distributed worker application
+ * that receives its work from jaws-central via jms queue.
  * @author Chris Stier <chrisstier@riverrunners.co>
  */
 @Configuration
@@ -16,7 +17,7 @@ import org.springframework.context.annotation.Configuration;
 public class App {
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args){
         if(args.length == 1 && !args[0].isEmpty()){
             if(args[0].equals("--help")){
                 printUsage();
@@ -24,7 +25,7 @@ public class App {
             }
         }
 
-        SpringApplication.run(App.class, args);
+        ApplicationContext appContext = SpringApplication.run(App.class, args);
     }
 
     /**
@@ -40,9 +41,7 @@ public class App {
         System.out.println("--es.port={some port number}");
         System.out.println("\tDefault ElasticSearch port number is 9300.");
         System.out.println("Example that overrides all defaults:");
-        System.out.println("\tjava -jar jaws-central.jar --server.port=8080 --es.hostname=192.168.1.33 --es.port=9300");
+        System.out.println("\tjava -jar jaws-rc.jar --server.port=8080 --es.hostname=192.168.1.33 --es.port=9300");
     }
 
 }
-
-

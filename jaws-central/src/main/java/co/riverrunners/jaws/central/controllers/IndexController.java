@@ -1,4 +1,4 @@
-package co.riverrunners.jaws.controllers;
+package co.riverrunners.jaws.central.controllers;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

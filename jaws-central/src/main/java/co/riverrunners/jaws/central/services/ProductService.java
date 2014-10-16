@@ -1,4 +1,4 @@
-package co.riverrunners.jaws.services;
+package co.riverrunners.jaws.central.services;
 
 import org.springframework.stereotype.Service;
 

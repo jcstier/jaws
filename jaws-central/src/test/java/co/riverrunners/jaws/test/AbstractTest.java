@@ -1,6 +1,6 @@
 package co.riverrunners.jaws.test;
 
-import co.riverrunners.jaws.App;
+import co.riverrunners.jaws.central.App;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.IntegrationTest;
 import org.springframework.boot.test.SpringApplicationConfiguration;
