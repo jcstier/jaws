@@ -1,6 +1,7 @@
 buildscript {
     repositories {
         maven { url "http://repo.spring.io/libs-release" }
+	maven { url "http://repo1.maven.org/maven2/org/seleniumhq/selenium/" }
         mavenLocal()
         mavenCentral()
     }
@@ -45,6 +46,7 @@ project(':jaws-rc') {
         compile("org.springframework.boot:spring-boot-starter-jetty")
         compile("org.springframework.boot:spring-boot-starter-actuator")
         compile("org.springframework.boot:spring-boot-starter-thymeleaf")
+        compile("org.seleniumhq.selenium:selenium-java:2.43.1")
         compile project(':jaws-model')
         compile project(':jaws-es')
 
