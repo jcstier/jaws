@@ -13,7 +13,7 @@ import org.springframework.context.annotation.Configuration;
  */
 @Configuration
 @EnableAutoConfiguration
-@ComponentScan
+@ComponentScan(basePackages = "co.riverrunners")
 public class App {
 
 

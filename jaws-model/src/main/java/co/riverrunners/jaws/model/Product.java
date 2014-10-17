@@ -7,7 +7,7 @@ import java.util.Map;
 
 /**
  * Product model - holds asin, and other info for a project.
- * @author Chris Stier <john.c.stier@gmail.com>
+ * @author Chris Stier <chrisstier@riverrunners.co>
  */
 
 public class Product implements Serializable{
