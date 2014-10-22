@@ -1,6 +1,9 @@
 package co.riverrunners.jaws.model;
 
 import java.io.Serializable;
+import java.text.NumberFormat;
+import java.text.ParseException;
+import java.util.Locale;
 
 /**
  * Class to represent a line item in the BBHR (Buy Box Hold Rate)
@@ -48,6 +51,39 @@ public class BBHRLineItem implements Serializable {
 		this.unitSessionPercentage = unitSessionPercentage;
 		this.grossProductSales = grossProductSales;
 		this.ordersPlaced = ordersPlaced;
+	}
+	
+	public static double parseDouble(String s) throws ParseException{
+		return NumberFormat.getNumberInstance(java.util.Locale.US).parse(s).doubleValue();
+	}
+	
+	public static int parseInt(String s) throws ParseException{
+		return NumberFormat.getNumberInstance(java.util.Locale.US).parse(s).intValue();
+	}
+	
+	public static double parsePercent(String s) throws ParseException{
+		return NumberFormat.getPercentInstance(java.util.Locale.US).parse(s).doubleValue();
+	}
+	
+	public static double parseDollars(String s) throws ParseException{
+		// the currency instance does not work correctly for US Dollars in Java - go figure.
+		return parseDouble(s.replace("$", ""));
+	}
+	
+	public BBHRLineItem(String[] data) throws ParseException {
+		this.parentASIN = data[0];
+		this.childASIN = data[1];
+		this.title = data[2];
+		this.sku = data[3];
+		this.sessions = data[4];
+		this.sessionPercentage = parsePercent(data[5]);
+		this.pageViews = parseInt(data[6]);
+		this.pageViewsPercentage = parsePercent(data[7]);
+		this.buyBoxPercentage = parsePercent(data[8]);
+		this.unitsOrdered = parseInt(data[9]);
+		this.unitSessionPercentage = parsePercent(data[10]);
+		this.grossProductSales = parseDollars(data[11]);
+		this.ordersPlaced = parseInt(data[12]);		
 	}
 
 	public void setParentASIN(String parentASIN) {
@@ -152,5 +188,21 @@ public class BBHRLineItem implements Serializable {
 
 	public int getOrdersPlaced() {
 		return ordersPlaced;
+	}
+	
+	public String toString() {
+		return "Parent ASIN: " + parentASIN + 
+		", Child ASIN: " + childASIN + 
+		", Title: " + title +
+		", SKU: " + sku +
+		", Sessions: " + sessions +
+		", Session Percentage: " + NumberFormat.getPercentInstance().format(sessionPercentage) +
+		", Page Views: " + pageViews +
+		", Page Views Percentage: " + NumberFormat.getPercentInstance().format(pageViewsPercentage) +
+		", Buy Box Percentage: " + NumberFormat.getPercentInstance().format(buyBoxPercentage) +
+		", Units Ordered: " + unitsOrdered +
+		", Unit Session Percentage: " + NumberFormat.getPercentInstance().format(unitSessionPercentage) +
+		", Gross Product Sales: " + NumberFormat.getCurrencyInstance(Locale.US).format(grossProductSales) +
+		", Orders Placed: " + ordersPlaced;
 	}
 }
