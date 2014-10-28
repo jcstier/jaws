@@ -17,7 +17,7 @@ import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import co.riverrunners.jaws.model.BBHRLineItem;
+import co.riverrunners.bbhr.model.BBHRLineItem;
 import co.riverrunners.jaws.rc.workers.util.CSVUtils;
 
 //TODO who creates this?

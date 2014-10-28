@@ -51,6 +51,7 @@ project(':jaws-rc') {
         compile("org.seleniumhq.selenium:selenium-java:2.43.1")
         compile project(':jaws-model')
         compile project(':jaws-es')
+        compile project(':jaws-bbhr')
 
         //testing
         testCompile("org.springframework.boot:spring-boot-starter-test")
