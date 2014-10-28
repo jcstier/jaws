@@ -97,6 +97,18 @@ project(':jaws-es') {
     }
 }
 
+/**
+ * JAWS Buy Box Hold Rate project.  Holds all implementation for doing BBHR
+ */
+project(':jaws-bbhr'){
+
+    dependencies{
+        compile project(':jaws-model')
+        compile("org.seleniumhq.selenium:selenium-java:2.43.1")
+    }
+}
+
+
 // TODO: Need to figure out how to make zip distribution which only contains central and rc.
 task dist(type: Zip) {
 //    from jar.output.files
