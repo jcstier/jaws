@@ -33,15 +33,21 @@ public class JawsExecutor {
 
     /*
      * Process the work queue. Pulls work from the the queue and executes it
-     * with the executor.
+     * with the executor.  The fixedDelay will start at 5 seconds... This is an
+     * easy way to get a one shot timer call to work.  The @Scheduled will go
+     * off creating process loop to grab items off the queue and put them in the
+     * executor.
      */
     @Scheduled(fixedDelay = 5000)
     private void process(){
         while(true){
-            Worker worker = workQueue.popWorker();
-            if(worker != null){
-                worker.postRun();
-                executor.execute(worker);
+            logger.debug("JawsExecutor: running!");
+            if(executor.getActiveCount() < executor.getMaxPoolSize()) {
+                Worker worker = workQueue.popWorker();
+                if (worker != null) {
+                    worker.postRun();
+                    executor.execute(worker);
+                }
             }
         }
 

@@ -30,7 +30,7 @@ public class JmsConfig {
 
 
     @Bean
-    private MessageListenerAdapter adapter(WorkQueue receiver) {
+    public MessageListenerAdapter adapter(WorkQueue receiver) {
         MessageListenerAdapter messageListener
                 = new MessageListenerAdapter(receiver);
         messageListener.setDefaultListenerMethod("receiveMessage");
@@ -39,7 +39,7 @@ public class JmsConfig {
     }
 
     @Bean
-    private SimpleMessageListenerContainer container(MessageListenerAdapter messageListenerAdapter,
+    public SimpleMessageListenerContainer container(MessageListenerAdapter messageListenerAdapter,
                                              ConnectionFactory connectionFactory){
         SimpleMessageListenerContainer container = new SimpleMessageListenerContainer();
         container.setMessageListener(messageListenerAdapter);

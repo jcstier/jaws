@@ -74,7 +74,7 @@ project(':jaws-central') {
         compile("org.apache.activemq:activemq-broker")
         compile project(':jaws-model')
         compile project(':jaws-es')
-
+        compile project(':jaws-bbhr')
         //testing
         testCompile("org.springframework.boot:spring-boot-starter-test")
     }
@@ -105,7 +105,7 @@ project(':jaws-bbhr'){
 
     dependencies{
         compile project(':jaws-model')
-        compile ('org.slf4j:slf4j-simple:1.7.7')
+        compile ("ch.qos.logback:logback-classic:1.1.2")
         compile('org.seleniumhq.selenium:selenium-java:2.43.1')
     }
 }

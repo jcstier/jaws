@@ -56,10 +56,14 @@ public class WorkQueue {
     /**
      * Pop a {@link co.riverrunners.jaws.bbhr.model.dispatcher.Worker} from the queue.
      *
-     * @return The next work worker.
+     * @return The next work worker or null if queue is empty
      */
     public Worker popWorker() {
-        return workQueue.poll();
+        if (!workQueue.isEmpty()) {
+            return workQueue.poll();
+        } else {
+            return null;
+        }
     }
 
 }
