@@ -32,8 +32,8 @@ gradle build
 * Download ElasticSearch at http://www.elasticsearch.org/overview/elkdownloads/
 * Download ActiveMQ at http://activemq.apache.org/download.html
 * Extract the archives somewhere on your hard drive.
-* Run ElasticSearch by cd'ing into <ElasticSearch_Root>/bin and run ./elasticsearch
+* Run ElasticSearch by cd'ing into ElasticSearch_Root/bin and run ./elasticsearch
 * No configuration is need for ElasticSeach... just run it.
-* Run ActiveMQ by cd'ing into <ActiveMQ_Root>/bin and run  ./activemq start
+* Run ActiveMQ by cd'ing into ActiveMQ_Root/bin and run  ./activemq start
 * RC and ElasticSearch will automatically look for these services on localhost. 
  
