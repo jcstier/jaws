@@ -18,6 +18,7 @@ gradle build
 
 ### Running JAWS ###
 #### Running central ####
+* Note: Prior to running RC and Central make sure ActiveMQ and ElasticSearch are running.
 * cd to ./jaws-central/libs
 ```
  java -jar jaws-central-1.0.jar 
@@ -26,3 +27,13 @@ gradle build
 ```
  java -jar jaws-central-1.0.jar --help
 ```
+
+### Setting up ElasticSearch and ActiveMQ ###
+* Download ElasticSearch at http://www.elasticsearch.org/overview/elkdownloads/
+* Download ActiveMQ at http://activemq.apache.org/download.html
+* Extract the archives somewhere on your hard drive.
+* Run ElasticSearch by cd'ing into <ElasticSearch_Root>/bin and run ./elasticsearch
+* No configuration is need for ElasticSeach... just run it.
+* Run ActiveMQ by cd'ing into <ActiveMQ_Root>/bin and run  ./activemq start
+* RC and ElasticSearch will automatically look for these services on localhost. 
+ 
