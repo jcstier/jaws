@@ -35,5 +35,5 @@ gradle build
 * Run ElasticSearch by cd'ing into ElasticSearch_Root/bin and run ./elasticsearch
 * No configuration is need for ElasticSeach... just run it.
 * Run ActiveMQ by cd'ing into ActiveMQ_Root/bin and run  ./activemq start
-* RC and ElasticSearch will automatically look for these services on localhost. 
+* RC and Central will automatically look for these services on localhost. 
  
