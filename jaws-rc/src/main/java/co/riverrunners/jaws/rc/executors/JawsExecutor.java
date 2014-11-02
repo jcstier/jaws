@@ -25,8 +25,6 @@ public class JawsExecutor {
     @Autowired
     private WorkQueue workQueue;
 
-    private JmsTemplate jmsTemplate;
-
     @PostConstruct
     private void init(){
         logger.debug("Starting JawsExecutor");
