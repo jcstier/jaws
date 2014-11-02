@@ -1,4 +1,4 @@
-package co.riverrunners.jaws.rc.workers.util;
+package co.riverrunners.jaws.bbhr.util;
 
 /**
  * Some utilities for dealing with parsing CSV reports that will most likely

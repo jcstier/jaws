@@ -1,7 +1,7 @@
 package co.riverrunners.jaws.es.repositories;
 
 import co.riverrunners.jaws.es.listeners.ProductListener;
-import co.riverrunners.jaws.model.Product;
+import co.riverrunners.jaws.bbhr.model.Product;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.elasticsearch.action.get.GetResponse;

@@ -105,7 +105,8 @@ project(':jaws-bbhr'){
 
     dependencies{
         compile project(':jaws-model')
-        compile("org.seleniumhq.selenium:selenium-java:2.43.1")
+        compile ('org.slf4j:slf4j-simple:1.7.7')
+        compile('org.seleniumhq.selenium:selenium-java:2.43.1')
     }
 }
 

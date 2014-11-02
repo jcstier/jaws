@@ -1,6 +1,7 @@
 package co.riverrunners.jaws.rc.config;
 
 import co.riverrunners.jaws.rc.executors.JawsExecutor;
+import co.riverrunners.jaws.rc.executors.WorkQueue;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -29,7 +30,7 @@ public class JmsConfig {
 
 
     @Bean
-    private MessageListenerAdapter adapter(JawsExecutor receiver) {
+    private MessageListenerAdapter adapter(WorkQueue receiver) {
         MessageListenerAdapter messageListener
                 = new MessageListenerAdapter(receiver);
         messageListener.setDefaultListenerMethod("receiveMessage");
