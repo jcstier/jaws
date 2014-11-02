@@ -30,6 +30,8 @@ gradle build
 ```
 
 ### Setting up ElasticSearch and ActiveMQ ###
+No configuration is needed for both of these applications.  Just download them and run them.
+
 * Download ElasticSearch at http://www.elasticsearch.org/overview/elkdownloads/
 * Download ActiveMQ at http://activemq.apache.org/download.html
 * Extract the archives somewhere on your hard drive.
