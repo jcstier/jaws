@@ -9,3 +9,4 @@ target/
 .idea
 build
 .gradle
+.DS_Store

@@ -1,4 +1,4 @@
-package co.riverrunners.jaws.model;
+package co.riverrunners.jaws.bbhr.model;
 
 import java.io.Serializable;
 import java.text.NumberFormat;

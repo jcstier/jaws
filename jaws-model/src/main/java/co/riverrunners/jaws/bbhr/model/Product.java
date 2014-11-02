@@ -1,9 +1,8 @@
-package co.riverrunners.jaws.model;
+package co.riverrunners.jaws.bbhr.model;
 
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
-import java.util.Map;
 
 /**
  * Product model - holds asin, and other info for a project.

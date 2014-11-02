@@ -1,6 +1,6 @@
 package co.riverrunners.jaws.es.listeners;
 
-import co.riverrunners.jaws.model.Product;
+import co.riverrunners.jaws.bbhr.model.Product;
 
 import java.util.List;
 

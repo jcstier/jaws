@@ -1,12 +1,12 @@
 buildscript {
     repositories {
         maven { url "http://repo.spring.io/libs-release" }
-	maven { url "http://repo1.maven.org/maven2/org/seleniumhq/selenium/" }
+        maven { url "http://repo1.maven.org/maven2/org/seleniumhq/selenium/" }
         mavenLocal()
         mavenCentral()
     }
     dependencies {
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.1.6.RELEASE")
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.1.8.RELEASE")
     }
 }
 
@@ -51,6 +51,7 @@ project(':jaws-rc') {
         compile("org.seleniumhq.selenium:selenium-java:2.43.1")
         compile project(':jaws-model')
         compile project(':jaws-es')
+        compile project(':jaws-bbhr')
 
         //testing
         testCompile("org.springframework.boot:spring-boot-starter-test")
@@ -73,7 +74,7 @@ project(':jaws-central') {
         compile("org.apache.activemq:activemq-broker")
         compile project(':jaws-model')
         compile project(':jaws-es')
-
+        compile project(':jaws-bbhr')
         //testing
         testCompile("org.springframework.boot:spring-boot-starter-test")
     }
@@ -86,14 +87,27 @@ project(':jaws-model') {
 }
 
 project(':jaws-es') {
-
     dependencies {
-        compile("org.springframework.data:spring-data-elasticsearch:1.0.0.RELEASE")
+        compile("org.springframework.data:spring-data-elasticsearch:1.1.0.RELEASE"){
+            exclude module: 'spring*3.2.9.RELEASE'
+        }
         compile project(':jaws-model')
 
         //testing
-        testCompile ("junit:junit:4.11")
-        testCompile ("ch.qos.logback:logback-classic:1.1.2")
+        testCompile("junit:junit:4.11")
+        testCompile("ch.qos.logback:logback-classic:1.1.2")
+    }
+}
+
+/**
+ * JAWS Buy Box Hold Rate project.  Holds all implementation for doing BBHR
+ */
+project(':jaws-bbhr') {
+
+    dependencies {
+        compile project(':jaws-model')
+        compile("ch.qos.logback:logback-classic:1.1.2")
+        compile('org.seleniumhq.selenium:selenium-java:2.43.1')
     }
 }
 
