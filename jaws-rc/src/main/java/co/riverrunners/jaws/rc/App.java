@@ -27,7 +27,7 @@ public class App {
             }
         }
 
-        ApplicationContext appContext = SpringApplication.run(App.class, args);
+        SpringApplication.run(App.class, args);
     }
 
     /**
