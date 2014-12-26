@@ -21,7 +21,10 @@ public class ThreadPoolConfig {
     @Value("${jaws.rc.maxpoolsize:10}")
     private String maxPoolSize;
 
-
+    /**
+     * Sets up the thread pool.
+     * @return
+     */
     @Bean public ThreadPoolTaskExecutor taskExecutor() {
         ThreadPoolTaskExecutor  pool = new ThreadPoolTaskExecutor();
         pool.setCorePoolSize(Integer.valueOf(minPoolSize));

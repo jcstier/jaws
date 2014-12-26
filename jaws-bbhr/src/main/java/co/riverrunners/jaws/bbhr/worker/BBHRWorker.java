@@ -35,8 +35,8 @@ public class BBHRWorker implements Worker {
     // Keeping until this is in db and set from dispatcher.
     /*
     protected static final String loginPageURL = "https://sellercentral.amazon.com";
-    protected static final String username = "riverrunners-a@riverrunners.co";
-    protected static final String password = "spoonboy0";
+    protected static final String username = "";
+    protected static final String password = "";
     protected static final String reportURL = "https://sellercentral.amazon.com/gp/site-metrics/load/csv/BusinessReport-{0}.csv?reportID={1}&sortIsAscending={2}&sortColumn={3}&fromDate={4}&toDate={5}&cols={6}&rows={7}&dateUnit={8}&currentPage={9}&runDate={10}";
     */
 

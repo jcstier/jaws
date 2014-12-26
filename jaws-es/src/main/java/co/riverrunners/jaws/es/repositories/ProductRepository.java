@@ -142,6 +142,11 @@ public class ProductRepository {
     public void getProducts(int count, ProductListener productListener) throws JawsRepositoryException {
         logger.debug("Getting all products on index: {} and type: {} with count: {}",PRODUCT_INDEX,PRODUCT_TYPE,count);
 
+        /*
+            Note: This design will tie up the caller until it has gone through/scrolled through the entire
+            result set.  We might want to rethink how this works.
+
+         */
         SearchResponse response = client.prepareSearch().setIndices(PRODUCT_INDEX).setTypes(PRODUCT_TYPE)
                 .setSearchType(SearchType.SCAN)
                 .setScroll(new TimeValue(scrollTimeout))

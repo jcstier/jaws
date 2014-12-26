@@ -19,6 +19,9 @@ import javax.jms.ConnectionFactory;
 @Configuration
 public class JmsConfig {
 
+    /**
+     * Loaded from application.properties
+     */
     @Value("${jaws.central.jms.work.queue:jaws.work}")
     private String workQueueDestination;
 
@@ -29,6 +32,13 @@ public class JmsConfig {
      */
 
 
+    /**
+     * Sets the message listener.  {@link co.riverrunners.jaws.rc.executors.WorkQueue} is the JMS
+     * listener.  Spring will pass the WorkQueue instance into this method where we tell it what
+     * method to use as a listener callback.
+     * @param receiver
+     * @return
+     */
     @Bean
     public MessageListenerAdapter adapter(WorkQueue receiver) {
         MessageListenerAdapter messageListener
@@ -38,6 +48,12 @@ public class JmsConfig {
         return messageListener;
     }
 
+    /**
+     * This sets the queue name.  Spring also calls this with the the proper instances.
+     * @param messageListenerAdapter
+     * @param connectionFactory
+     * @return
+     */
     @Bean
     public SimpleMessageListenerContainer container(MessageListenerAdapter messageListenerAdapter,
                                              ConnectionFactory connectionFactory){
